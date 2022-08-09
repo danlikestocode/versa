@@ -9,9 +9,7 @@ const Application: React.FC = () => {
   const [darkTheme, setDarkTheme] = useState(true);
   const [versions, setVersions] = useState<Record<string, string>>({});
 
-  /**
-   * On component mount
-   */
+  // On component mount
   useEffect(() => {
     const useDarkTheme = parseInt(localStorage.getItem('dark-mode'));
     if (isNaN(useDarkTheme)) {
@@ -28,9 +26,7 @@ const Application: React.FC = () => {
     setVersions(versions);
   }, []);
 
-  /**
-   * On Dark theme change
-   */
+  // On Dark Theme Change
   useEffect(() => {
     if (darkTheme) {
       localStorage.setItem('dark-mode', '1');
@@ -41,9 +37,7 @@ const Application: React.FC = () => {
     }
   }, [darkTheme]);
 
-  /**
-   * Toggle Theme
-   */
+  // Toggle Theme
   function toggleTheme() {
     setDarkTheme(!darkTheme);
   }
